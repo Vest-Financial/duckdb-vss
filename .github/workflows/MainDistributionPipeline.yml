@@ -1,8 +1,8 @@
 #
-# VestBrain lockstep candidate build: vss against core 8806a9f (the SHA
-# upstream duckdb-fts declares in .github/duckdb-version). Build-only —
-# deploy removed; artifacts are retrieved from the run, signed/published
-# via getsoftware.vestfin.com out-of-band.
+# VestBrain lockstep candidate: vss against core 8806a9f (fts-declared pin).
+# linux_amd64 ONLY — the platform prod ships. arm64 cross-compile failed in
+# run 34478817262 (fail-fast cancelled amd64 before it answered); scoping to
+# the lane that matters. Build-only; artifacts published out-of-band.
 #
 name: Main Extension Distribution Pipeline
 on:
@@ -20,4 +20,4 @@ jobs:
       extension_name: vss
       duckdb_version: 8806a9f8638cf876f979762a8161c83a02ea9bc6
       ci_tools_version: main
-      exclude_archs: "wasm_mvp;wasm_eh;wasm_threads;windows_amd64_mingw"
+      exclude_archs: "wasm_mvp;wasm_eh;wasm_threads;windows_amd64_mingw;windows_amd64;osx_amd64;osx_arm64;linux_arm64;linux_amd64_musl"
